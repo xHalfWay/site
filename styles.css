@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #94c5ff, #ff95b3);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.section {
+    color: black;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+#navbar,
+#aboutMe,
+#sectionFio,
+#HardSkills,
+#SoftSkills,
+#contact {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#aboutMe {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+#navbar {
+    background-color: #333;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+#navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#HardSkills,
+#SoftSkills,
+#sectionFio,
+#contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#HardSkills .content,
+#SoftSkills .content,
+#sectionFio .content,
+#contact .content {
+    width: 100%;
+    margin: 0;
+}
+
+.icon {
+    max-width: 5%;
+    height: auto;
+}
+
+.photo {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+@media only screen and (max-width: 768px) {
+    .section {
+        padding: 30px;
+        width: 100%;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .content {
+        width: 100%;
+        margin-right: 0;
+    } 
+
+    #aboutMe {
+        flex-direction: column;
+    }
+
+    .photo {
+        max-width: 100%;
+    }
+
+    #navbar, #aboutMe {
+        width: 100vw;
+    }
+
+    #aboutMe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .content {
+        width: calc(100% - 40px);
+        margin: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .section {
+        display: block;
+    }
+
+    .content {
+        white-space: pre-line;
+        overflow: hidden;
+        word-break: break-all;
+    }
+
+    #navbar {
+        white-space: pre-line;
+        overflow: hidden;
+        word-break: break-all;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Добавьте этот стиль */
+    }
+
+    #footer {
+        white-space: pre-line;
+        overflow: hidden;
+        word-break: break-all;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer p {
+        display: inline;
+        letter-spacing: 0.55em; 
+    }
+
+
+    .content:hover {
+        animation: none;
+    }
+}
+
+@media (min-width: 401px) {
+    .content:hover {
+        transform: scale(1.01) rotate(0.5deg);
+    }
+}
+    

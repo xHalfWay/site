@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="navbar">
+        <a href="#section1">About me</a>
+        <a href="#section2">Hard Skills</a>
+        <a href="#section3">Soft Skills</a>
+        <a href="#contact">Contact me</a>
+    </div>
+
+    <div id="aboutMe" class="section">
+        <div class="content">
+            <img src="about.png" alt="Обо мне иконка" class="icon">
+            <h2>Обо мне</h2>
+            <p>
+                Молодой и амбициозный программист, находящийся на старте своей профессиональной карьеры.
+                <br> Студент колледжа ВятГУ, специальность "Информационные сети и программирование".
+                <br> Моя цель - стать выдающимся специалистом в данной области и принести пользу своим будущим работодателям.
+            </p>
+            <h2>Хобби</h2>
+            <p>Мои интересы охватывают разнообразные области, такие как музыка, кинематограф и спортивные соревнования.</p>
+        </div>
+    </div>
+
+    <div id="sectionFio" class="section">
+        <div class="content">
+            <img src="photo.png" alt="Фото" class="photo">
+            <h2>ФИО</h2>
+            <p>Лаптев Дмитрий Александрович</p>
+            <h2>Дата рождения</h2>
+            <p>12.02.2002</p>
+        </div>
+    </div>
+
+    <div id="HardSkills" class="section">
+        <div class="content">
+            <img src="hard.png" alt="Хард скиллы иконка" class="icon">
+            <h2>Hard Skills</h2>
+            <p>
+                Языки программирования: Опыт работы с Python, C++, и Pascal, с умением разрабатывать программное обеспечение и решать технические задачи.
+                <br> Информационные сети: Знание сетевых протоколов и навыки настройки сетевого оборудования.
+                <br> Алгоритмы и структуры данных: Умение оптимизировать алгоритмы и эффективно обрабатывать данные.
+                <br> Базы данных: Навыки работы с SQL и управления реляционными базами данных.
+            </p>
+        </div>
+    </div>
+
+    <div id="SoftSkills" class="section">
+        <div class="content">
+            <img src="soft.png" alt="Софт скиллы иконка" class="icon">
+            <h2>Soft Skills</h2>
+            <p>
+                Коммуникация: Эффективное общение и умение слушать, а также ясно и лаконично выражать свои мысли как на письме, так и в устной форме.
+                <br> Адаптивность: Гибкость и способность быстро адаптироваться к новым ситуациям и изменениям в проектах.
+                <br> Решение проблем: Способность анализировать сложные ситуации, выявлять причины и предлагать эффективные решения.
+                <br> Творческое мышление: Генерация новых идей и подходов к решению задач, даже в стандартных ситуациях.
+                <br> Управление временем: Организация рабочего времени, установление приоритетов и соблюдение сроков.
+            </p>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <div class="content">
+            <h2>Свяжитесь со мной</h2>
+            <form action="http://localhost:5000/contact" method="post" id="contact-form">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Ваш Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="message">Ваше сообщение:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+    
+                <button type="button" onclick="submitForm()">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer" class="section">
+        <p>Контакты:<br> Телефон: +7 953 000 00-00  <br> Почта: cstud146344@vyatsu.ru</p>
+    </div>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+    
+            var data = {
+                name: name,
+                email: email,
+                message: message
+            };
+    
+            fetch('http://localhost:5000/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result);
+                // Обработка успешной отправки, например, показ сообщения пользователю
+            })
+            .catch(error => {
+                console.error('Ошибка при отправке запроса:', error);
+                // Обработка ошибок, например, вывод сообщения об ошибке
+            });
+    
+        }
+    </script>
+
+
+</body>
+
+</html>
+
